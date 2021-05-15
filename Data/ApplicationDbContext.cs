@@ -17,7 +17,7 @@ namespace MyFirstProject.Data
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
-            //products are utilizari 
+            //products are utilizari ............
         }
     }
 }
