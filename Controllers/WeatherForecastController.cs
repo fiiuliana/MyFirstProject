@@ -15,7 +15,7 @@ namespace MyFirstProject.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chillyssss", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Bracing", "Chillyssss", "Cool", "Mild", "Warm", "Balmy", "Hooooooooooooot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
