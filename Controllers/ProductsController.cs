@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyFirstProject.Data;
 using MyFirstProject.Models;
+using MyFirstProject.ViewModels;
 
 namespace MyFirstProject.Controllers
 {
@@ -45,16 +46,24 @@ namespace MyFirstProject.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductViewModel>> GetProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
+
+            var productViewModel = new ProductViewModel                         
+            {
+                Id = product.Id,
+                Description = product.Description,
+                Name = product.Name,
+                Price = product.Price
+            };
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            return product;
+            return productViewModel;
         }
 
         // PUT: api/Products/5
