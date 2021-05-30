@@ -21,6 +21,15 @@ namespace MyFirstProject.Controllers
             _context = context;
         }
 
+        //another way of filtering using routes
+        [HttpGet]
+        [Route("filter/{minPrice}")]
+        public ActionResult<IEnumerable<Product>> FilterProducts(int minPrice)
+        {
+            return _context.Products.Where(p => p.Price >= minPrice).ToList();
+        }
+
+
         // GET: api/Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts(int? minPrice) // ? il face nullable
