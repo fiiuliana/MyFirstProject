@@ -26,7 +26,9 @@ namespace MyFirstProject.Controllers
         [Route("filter/{minPrice}")]
         public ActionResult<IEnumerable<Product>> FilterProducts(int minPrice)
         {
-            return _context.Products.Where(p => p.Price >= minPrice).ToList();
+            var query = _context.Products.Where(p => p.Price >= minPrice);
+            Console.WriteLine( query.ToQueryString());
+            return query.ToList(); // abia aici se executa, anterior se pregateste
         }
 
 
